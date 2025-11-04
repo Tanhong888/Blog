@@ -112,6 +112,83 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // 照片画廊交互效果
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // 创建全屏查看功能
+            const img = this.querySelector('img');
+
+            if (img) {
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 10000;
+                    cursor: pointer;
+                `;
+
+                const modalImg = document.createElement('img');
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                modalImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    border-radius: 10px;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                `;
+
+                modal.appendChild(modalImg);
+                document.body.appendChild(modal);
+
+                // 添加关闭功能
+                modal.addEventListener('click', function() {
+                    modal.style.opacity = '0';
+                    modal.style.transition = 'opacity 0.3s ease';
+                    setTimeout(() => {
+                        document.body.removeChild(modal);
+                    }, 300);
+                });
+
+                // 添加淡入效果
+                modal.style.opacity = '0';
+                modal.style.transition = 'opacity 0.3s ease';
+                setTimeout(() => {
+                    modal.style.opacity = '1';
+                }, 10);
+            }
+        });
+    });
+
+    // 为照片画廊添加滚动显示动画
+    const galleryObserver = new IntersectionObserver(function(entries) {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                }, index * 150);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    galleryItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px) scale(0.9)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        galleryObserver.observe(item);
+    });
+
     // 添加打字机效果到hero标题
     const heroTitle = document.querySelector('.hero-content h1');
     if (heroTitle) {
@@ -200,9 +277,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 添加键盘导航支持
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function(event) {
         // ESC键关闭移动端菜单
-        if (e.key === 'Escape') {
+        if (event.key === 'Escape') {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         }
@@ -229,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 懒加载图片（如果有的话）
     const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries, observer) => {
+    const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
