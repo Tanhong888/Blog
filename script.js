@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // 为需要动画的元素添加观察
-    const animateElements = document.querySelectorAll('.timeline-item, .skill-category, .project-card, .insight-card');
+    const animateElements = document.querySelectorAll('.timeline-item, .skill-category, .project-card, .insight-card, .insight-section');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';

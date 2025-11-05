@@ -252,7 +252,294 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* 时间线样式 */
+/* 收获和感想区域样式 */
+.insights-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.insight-section {
+    background: white;
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.insight-section:hover {
+    transform: translateY(-5px);
+}
+
+.insight-section h3 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.insight-section h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.insight-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.key-highlight {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 2rem;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.key-highlight i {
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.key-highlight strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.method-steps {
+    margin-top: 2rem;
+}
+
+.step-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.step-content p {
+    margin-bottom: 0;
+}
+
+.competition-insight {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.insight-card-left,
+.insight-card-right {
+    flex: 1;
+    min-width: 200px;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.insight-card-left i,
+.insight-card-right i {
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.insight-card-left h4,
+.insight-card-right h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.vs-divider {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.insight-conclusion {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    font-style: italic;
+    color: #666;
+    border-left: 4px solid #667eea;
+}
+
+.skills-grid-small {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.skill-item i {
+    color: #667eea;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.team-quote {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+}
+
+.team-quote i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.team-quote blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.final-thanks {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2.5rem;
+}
+
+.final-thanks h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.final-thanks h3::before {
+    background: white;
+}
+
+.final-thanks p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+.future-outlook {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.outlook-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.outlook-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.outlook-item i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.outlook-item h4 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.outlook-item p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.final-conclusion {
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    margin: 2rem 0 0 0;
+    color: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+/* 时间线样式（保留原有样式以防需要） */
 .timeline {
     position: relative;
     max-width: 800px;
@@ -911,6 +1198,34 @@ footer i {
 
     .memory-quote {
         padding: 2rem 1.5rem;
+    }
+
+    /* 收获和感想区域响应式 */
+    .insight-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .competition-insight {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .insight-card-left,
+    .insight-card-right {
+        width: 100%;
+    }
+
+    .vs-divider {
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .skills-grid-small {
+        grid-template-columns: 1fr;
+    }
+
+    .future-outlook {
+        grid-template-columns: 1fr;
     }
 
     section {
